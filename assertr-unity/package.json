@@ -1,0 +1,14 @@
+{
+  "name": "com.teonino.assertr",
+  "version": "0.0.1",
+  "displayName": "Assertr",
+  "description": "Remote automation and testing tool for Unity 6+",
+  "unity": "6000.0",
+  "unityRelease": "0f1",
+  "type": "tool",
+  "author": {
+    "name": "Sodano Mateo",
+    "email": "sodano.mateo@outlook.com",
+    "url": "https://linktr.ee/sodano.mateo"
+  }
+}
