@@ -1,5 +1,6 @@
 using System.Net;
 using UnityEngine;
+using System.Threading;
 
 namespace Teonino.Assertr.Transport
 {
@@ -9,6 +10,7 @@ namespace Teonino.Assertr.Transport
     {
         private HttpListener _listener;
         private int _port;
+        private Thread _thread;
 
         public HttpServer(int port)
         {
@@ -20,6 +22,11 @@ namespace Teonino.Assertr.Transport
         public void Start()
         {
             _listener.Start();
+            _thread = new Thread(Listen);
+            _thread.IsBackground = true;
+            _thread.Start();
+
+
             Debug.Log($"Assertr HTTP server started on port {_port}");
         }
 
@@ -27,6 +34,22 @@ namespace Teonino.Assertr.Transport
         {
             _listener.Stop();
             Debug.Log("Assertr HTTP Server stopped");
+        }
+
+        private void Listen()
+        {
+            while (_listener.IsListening)
+                {
+                    try
+                    {
+                        var context = _listener.GetContext();
+                        
+                    }
+                    catch (HttpListenerException)
+                    {
+                        break;
+                    }
+                }
         }
     }
 
