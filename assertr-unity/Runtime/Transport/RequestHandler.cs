@@ -12,7 +12,7 @@ namespace Teonino.Assertr.Transport
             string json = "{ \"status\": \"ok\", \"message\": \"Assertr is running\" }";
             context.Response.ContentType = "application/json";
 
-            buffer = Encoding.UTF8.GetBytes(json);            
+            byte[] buffer = System.Text.Encoding.UTF8.GetBytes(json); 
             context.Response.OutputStream.Write(buffer, 0, buffer.Length);
             context.Response.OutputStream.Close();
         }
