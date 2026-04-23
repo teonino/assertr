@@ -43,7 +43,7 @@ namespace Teonino.Assertr.Transport
                     try
                     {
                         var context = _listener.GetContext();
-                        
+                        RequestHandler.Handle(context)
                     }
                     catch (HttpListenerException)
                     {
